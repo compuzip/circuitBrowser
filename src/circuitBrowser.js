@@ -299,14 +299,46 @@ circuitBrowserModule.controllers.CircuitCtrl = function ($scope, $dialog, $route
         $scope.popIspLayer.draw();
     }
 
-    $scope.popCircuitIn = function (circuitId) {
-        $scope.circuitLinesByCircuitId[circuitId].setStroke('red');
-        $scope.lineLayer.draw();
+    $scope.popCircuitIn = function (circuitOrLineId) {
+        var upDown = circuitOrLineId.split('_');
+        var circuit;
+
+        if (upDown.length === 2) {
+            circuit = $scope.circuitLines[circuitOrLineId];
+        } else {
+            circuit = $scope.circuitLinesByCircuitId[circuitOrLineId];
+            upDown = circuit.getId().split('_');
+        }
+
+        if (upDown[0] === upDown[1]) {
+            // Crossconnect within POP
+            $scope.popIspShapes[upDown[0]].setFill('#DEF5FC');
+            $scope.popIspLayer.draw();
+        } else {
+            circuit.setStroke('red');
+            $scope.lineLayer.draw();
+        }
     }
 
-    $scope.popCircuitOut = function (circuitId) {
-        $scope.circuitLinesByCircuitId[circuitId].setStroke('blue');
-        $scope.lineLayer.draw();
+    $scope.popCircuitOut = function (circuitOrLineId) {
+        var upDown = circuitOrLineId.split('_');
+        var circuit;
+
+        if (upDown.length === 2) {
+            circuit = $scope.circuitLines[circuitOrLineId];
+        } else {
+            circuit = $scope.circuitLinesByCircuitId[circuitOrLineId];
+            upDown = circuit.getId().split('_');
+        }
+
+        if (upDown[0] === upDown[1]) {
+            // Crossconnect within POP
+            $scope.popIspShapes[upDown[0]].setFill('#ddd');
+            $scope.popIspLayer.draw();
+        } else {
+            circuit.setStroke('blue');
+            $scope.lineLayer.draw();
+        }
     }
 
     $scope.clearAllObjects = function (clearSearcher) {
@@ -554,6 +586,14 @@ circuitBrowserModule.controllers.CircuitCtrl = function ($scope, $dialog, $route
                                     y: $scope.popIspShapes[up].getY() + $scope.popIspShapes[up].getHeight() / 2
                                 }
                             ]
+                        });
+
+                        $scope.circuitLines[lineId].on('mouseover', function () {
+                            $scope.popCircuitIn(this.attrs.id);
+                        });
+
+                        $scope.circuitLines[lineId].on('mouseout', function () {
+                            $scope.popCircuitOut(this.attrs.id);
                         });
 
                         $scope.lineLayer.add($scope.circuitLines[lineId]);
