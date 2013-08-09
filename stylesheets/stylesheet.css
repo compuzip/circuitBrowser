@@ -369,3 +369,120 @@ footer a:hover {
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {}
+
+
+html {
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+input {
+    margin: .5em;
+}
+
+.compact {
+    margin: 0px;
+}
+
+.circuitViewer {
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    background-color: #f1f1f1;
+    height: 300px;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100%; 
+    height: 230px
+}
+
+.modal-large h1 {
+    font-size: 18px;
+    border-bottom: 1px solid gray;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+.modal-large h2 {
+    font-size: 16px;
+    margin-left: .5em;
+}
+
+.modal-large h3 {
+    font-size: 14px;
+    margin-left: .5em;
+}
+
+.modal-large h1, h2, h3 {
+    line-height: 20px;
+}
+
+.modal-large {
+    width: 88%;
+    margin-left: -44%;
+}
+
+@media (max-width: 600px) {
+    .modal-large {
+        width: 580px;
+        margin-left: -290px;
+    }
+}
+
+.objectTable th {
+    text-align: left;
+}
+
+.objectTable th.intro {
+    font-size: 16px;
+    text-align: center;
+}
+
+.objectTable caption {
+    font-style: italic;
+}
+
+.objectInfoContainer {
+    background: #FFFFDA;
+    /*background: #F1F5F9;*/
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    
+    width: 100%;
+}
+
+
+/* Override the row color for ng-grid */
+.ngRow.even {
+    background-color: #F1F5F9;
+}
+
+/** Thanks http://nicolasgallagher.com/micro-clearfix-hack/demo/ */
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.section {
+    float: left;
+    display: inline;
+}
+
