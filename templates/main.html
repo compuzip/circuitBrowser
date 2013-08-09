@@ -1,0 +1,36 @@
+<h1>Circuits</h1>
+
+<div>
+
+  <div>
+  <form ng-submit="loadCluster(clusterLookup)" class="compact">
+    <span>Lookup by cluster:</span> 
+    <input ng-model="clusterLookup.searchParam" type="text"></input>
+    <button type="submit">Query</button>
+    <button type="button" ng-click="clearAllObjects(true)">Unload</button>
+  </form>
+  </div>
+
+  <div class="circuitViewer" id="circuitViewer"></div>
+
+  <div>
+    <accordion close-others="oneAtATime">
+      <accordion-group heading="Accounts ({{ data.accounts.length || '-' }})">
+        <div class="gridStyle" ng-grid="accountGrid"></div>
+      </accordion-group>
+      
+      <accordion-group heading="POPs ({{ data.pops.length || '-' }})">
+        <div class="gridStyle" ng-grid="popGrid"></div>
+      </accordion-group>
+      
+      <accordion-group heading="Circuits ({{ data.circuits.length || '-' }})">
+        <div class="gridStyle" ng-grid="circuitGrid"></div>
+      </accordion-group>
+      
+      <accordion-group heading="Clusters ({{ data.clusters.length || '-' }})">
+        <div class="gridStyle" ng-grid="clusterGrid"></div>
+      </accordion-group>
+    </accordion>
+  </div>
+
+</div>

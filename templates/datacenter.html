@@ -1,0 +1,45 @@
+<h1>View Datacenter</h1>
+
+<div class="objectInfoContainer cf">
+  <div class="section" style="width: 60%">
+    <div style="margin-left: 1em;">
+      <table class="objectTable">
+        <tbody>
+          <tr>
+            <th class="intro" colspan="2">
+              {{ pop.popName }}
+            </th>
+          <tr>
+            <th>Location</th>
+            <td>{{ pop.popLocation }}</td>
+          </tr>
+          <tr>
+            <th>ID</th>
+            <td>{{ pop.popId }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="section">
+    <div ng-show="itemIsCircuit(selectedItem)">
+      <circuitinfo data="selectedItem"></circuitinfo>
+    </div>
+    <div ng-show="itemIsCluster(selectedItem)">
+      <clusterinfo data="selectedItem"> </clusterinfo>
+    </div>
+  </div>
+</div>
+
+<div>
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="Clusters ({{ data.clusters.length || '-' }})">
+      <div class="gridStyle" ng-grid="clusterGrid"></div>
+    </accordion-group>
+    
+    <accordion-group heading="Circuits ({{ data.circuits.length || '-' }})">
+      <div class="gridStyle" ng-grid="circuitGrid"></div>
+    </accordion-group>
+  </accordion>
+</div>

@@ -1,0 +1,19 @@
+<table class="objectTable">
+  <thead>
+    <caption>Cluster Info</caption>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Name:</th>
+      <td><a title="View {{ data.clusterName }} in circuit browser" href="/cluster/{{ data.clusterName }}">{{ data.clusterName }}</a></td>
+    </tr>
+    <tr>
+      <th>ID:</th>
+      <td>{{ data.clusterId }}</td>
+    </tr>
+    <tr>
+      <th>Capacity:</th>
+      <td>{{ 8 * data.clusterCapacity | bandwidth }}bps</td>
+    </tr>
+  </tbody>
+</table>
