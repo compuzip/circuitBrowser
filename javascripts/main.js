@@ -10,12 +10,12 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when('/',
         {
-            templateUrl: '/templates/main.html',
+            templateUrl: '/circuitBrowser/templates/main.html',
             controller: 'CircuitCtrl'
         })
         .when('/cluster/:cluster',
         {
-            templateUrl: '/templates/main.html',
+            templateUrl: '/circuitBrowser/templates/main.html',
             controller: 'CircuitCtrl'
         })
         .otherwise({
