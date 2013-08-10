@@ -18,6 +18,16 @@ app.config(function ($routeProvider) {
             templateUrl: '/circuitBrowser/templates/main.html',
             controller: 'CircuitCtrl'
         })
+        .when('/circuitBrowser/',
+        {
+            templateUrl: '/circuitBrowser/templates/main.html',
+            controller: 'CircuitCtrl'
+        })
+        .when('/circuitBrowser/cluster/:cluster',
+        {
+            templateUrl: '/circuitBrowser/templates/main.html',
+            controller: 'CircuitCtrl'
+        })
         .otherwise({
             template: "<h1>I'm sorry Dave, I'm afraid I can't do that</h1>"
         })
